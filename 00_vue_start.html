@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="js-input">
+  <p id="js-p"></p>
+  <div id="app">
+    {{message}}
+    <input type="text" id="vue-input" v-model="msg">
+    <p id="vue-p">{{msg}}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // js 이용한 p태그 문자 출력
+    const jsInput = document.querySelector('#js-input')
+    const jsP = document.querySelector('#js-p')
+    jsInput.addEventListener('keyup', e=>{
+      jsP.innerText = jsInput.value
+    })
+
+    //vue
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello vue',
+        msg: '',
+      },
+    })
+  </script>
+  
+</body>
+</html>

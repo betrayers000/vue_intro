@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>Todo App</h1>
+    <todo-list category="A"></todo-list>
+    <todo-list category="S"></todo-list>
+    <todo-list category="D"></todo-list>
+    <todo-card v-for="title in titles" v-bind:title="title" content="a"></todo-card>
+  </div>
+  
+  <script src="./todoList.js"></script>
+  <script src="./todoCard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data:{
+        titles: [
+          '안녕하세요',
+          '하이',
+          'hello',
+          'vue',
+        ],
+      }
+    })
+  </script>
+</body>
+</html>

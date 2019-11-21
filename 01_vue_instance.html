@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{message}} - {{count}}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app', 
+      data: {
+        message: 'hello vue',
+        count: 0,
+      },
+      methods: {
+        // arrow function 의 this는 DOM의 최상위를 가르킨다.(windows를 가르킨다)
+        //plus2: ()=>{
+        //  console.log(this)
+        //},
+        // function 의 this는 vue객체를 가르킨다.
+        plus: function(){
+          this.count++
+        },
+        minus(){
+          this.count--
+        }
+      },
+    })
+  </script>
+</body>
+</html>

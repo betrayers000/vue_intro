@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="getPosts">Get Posts!</button>
+    <div>
+      <ul>
+        <li v-for="post in post_data" :key="post.id"><h4 style="display:inline">{{post.title}}</h4> - {{post.body}}</li>
+      </ul>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        POST_URL: "https://jsonplaceholder.typicode.com/posts",
+        post_data: [],
+      },
+      methods : {
+        getPosts(){
+          axios.get(this.POST_URL)
+          .then(res=>{
+            this.post_data = res.data
+            console.log(res.data)
+          }).catch(err=>{
+            console.log(err)
+          })
+        }
+      },
+    })
+  </script>
+</body>
+</html>
